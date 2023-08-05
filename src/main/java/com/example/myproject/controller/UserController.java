@@ -46,7 +46,12 @@ public class UserController {
             return ResponseEntity.badRequest().body("가입되지 않은 이메일이거나 비밀번호가 일치하지 않습니다.");
         }
 
-        User user = userService.login(loginRequest.getEmail(), loginRequest.getPassword());
+        User user = userService.getUserByEmail(loginRequest.getEmail());
+
+        if (user == null || !passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
+            return ResponseEntity.badRequest().body("가입되지 않은 이메일이거나 비밀번호가 일치하지 않습니다.");
+        }
+        
         String token = jwtUtil.generateToken(user);
 
         return ResponseEntity.ok().header("Authorization", "Bearer" + token).build();
