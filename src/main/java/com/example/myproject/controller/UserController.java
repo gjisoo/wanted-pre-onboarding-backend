@@ -1,6 +1,7 @@
 package com.example.myproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,7 +55,10 @@ public class UserController {
         
         String token = jwtUtil.generateToken(user);
 
-        return ResponseEntity.ok().header("Authorization", "Bearer" + token).build();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + token);
+
+        return ResponseEntity.ok().headers(headers).body("로그인이 완료되었습니다.");
     }
 
     private boolean isValidEmail(String email){

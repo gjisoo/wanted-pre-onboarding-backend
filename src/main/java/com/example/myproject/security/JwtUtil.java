@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
 import com.example.myproject.entity.User;
@@ -35,5 +36,6 @@ public class JwtUtil {
             .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
             .signWith(key, SignatureAlgorithm.HS512)
             .compact();
+           
     }
 }

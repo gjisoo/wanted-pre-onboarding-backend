@@ -16,16 +16,21 @@ import com.example.myproject.service.UserService;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Autowired
+    private JwtFilter jwtFilter;
+    
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/","/login", "/join","/reqlogin")
+                .antMatchers("/","/login", "/join","/reqlogin","/write/post")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll()
+                .and()
+                .addFilter(jwtFilter);
         return http.build();
     }
 }
