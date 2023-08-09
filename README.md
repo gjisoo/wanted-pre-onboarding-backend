@@ -71,6 +71,6 @@ Pagination 기능을 통해 게시글 목록을 페이지 단위로 조회합니
 |/login|POST|{"email": "user@example.com", "password": "securepassword"}|사용자 로그인|성공 시: 200 OK</br>응답 본문: JWT 토큰</br>실패 시: 401 Unauthorized</br>응답 본문: 오류 메시지
 |/write/post|POST|{"title": "New Post", "content": "This is a new post content."}|새로운 게시글 생성|성공 시: 201 Created</br>응답 본문: 생성된 게시글의 정보 (생성된 게시글 ID 등)</br>실패 시: 400 Bad Request</br>응답 본문: 오류 메시지
 |/view/posts|GET|-|게시글 목록 조회 (Pagination 기능 포함) 1페이지부터 최신글순으로 보여짐|성공 시: 200 OK</br>응답 본문: 페이지 정보와 게시글 목록
-|/view/posts/{postId}|GET|-|특정 게시글 조회|성공 시: 200 OK </br> 응답 본문: 페이지 정보와 게시글 목록
+|/view/post/{postId}|GET|-|특정 게시글 조회|성공 시: 200 OK </br> 응답 본문: 페이지 정보와 게시글 목록
 |/edit/post/{postId}|PUT|{"title": "Updated Title", "content": "Updated content."}|특정 게시글 수정(작성자만 수정가능)|성공 시: 200 OK </br>응답 본문: "게시글이 수정되었습니다."
 |/delete/post/{postId}|DELETE|-|특정 게시글 삭제(작성자만 삭제가능)|성공 시: 200 </br> OK응답 본문: "게시글이 삭제되었습니다."
