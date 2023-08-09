@@ -33,6 +33,8 @@
 |author_id(FK)|bigint|
 |created_dt|datetime|
 |updated_dt|datetime|
+
+
 </br></br>
 
 #### 구현 방법 및 이유에 대한 간략한 설명
