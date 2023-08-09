@@ -34,8 +34,10 @@
 |created_dt|datetime|
 |updated_dt|datetime|
 
-
 </br></br>
+
+# 구현한 API의 동작
+https://youtu.be/-zub1f4W73s
 
 # 구현 방법 및 이유에 대한 간략한 설명
 1.회원가입 엔드포인트:
