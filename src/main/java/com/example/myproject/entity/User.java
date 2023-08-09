@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -39,5 +39,5 @@ public class User {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private Date createdDt;
+    private LocalDateTime createdDt;
 }

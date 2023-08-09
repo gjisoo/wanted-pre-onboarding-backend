@@ -1,6 +1,6 @@
 package com.example.myproject.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,11 +44,9 @@ public class Post {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private Date createdDt;
+    private LocalDateTime createdDt;
 
     @LastModifiedDate
-    private Date updateDt;
-
-    private Date deletedDt;
+    private LocalDateTime updatedDt;
 
 }
